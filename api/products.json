@@ -1,0 +1,101 @@
+
+[
+  {
+    "id": 1,
+    "name": "MacBook Pro M3",
+    "category": "Computers",
+    "brand": "Apple",
+    "price": 1999.99,
+    "actual_price": 2499,
+    "stock": 50,
+    "description": "High-performance laptop with M3 chip, 16GB RAM, 512GB SSD, and a stunning 14-inch Liquid Retina display.",
+    "image": "./public/images/laptop.png",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "name": "Smartphone Z Fold",
+    "category": "Mobiles",
+    "brand": "TechCorp",
+    "price": 999.00,
+    "actual_price": 1250,
+    "stock": 120,
+    "description": "A revolutionary foldable smartphone with a 7.6-inch dynamic AMOLED display and professional-grade camera system.",
+    "image": "https://placehold.co/400x300/e0f7fa/00bcd4?text=Fold+Phone",
+    "rating": 4.5
+  },
+  {
+    "id": 3,
+    "name": "Noise-Cancelling Headphones",
+    "category": "Audio",
+    "brand": "SoundWave",
+    "price": 249.99,
+    "actual_price": 349,
+    "stock": 85,
+    "description": "Over-ear headphones providing industry-leading active noise cancellation and 30 hours of battery life.",
+    "image": "https://placehold.co/400x300/fff3e0/ff9800?text=Headphones",
+    "rating": 4
+  },
+  {
+    "id": 4,
+    "name": "Desktop Gaming PC",
+    "category": "Computers",
+    "brand": "GamerPro",
+    "price": 1499.50,
+    "actual_price": 1800,
+    "stock": 30,
+    "description": "Powerful desktop built for gaming with RTX 4070, Core i7, 32GB DDR5 RAM, and liquid cooling.",
+    "image": "https://placehold.co/400x300/e8eaf6/3f51b5?text=Gaming+PC",
+    "rating": 4.8
+  },
+  {
+    "id": 5,
+    "name": "Budget Android Phone",
+    "category": "Mobiles",
+    "brand": "SimpleCom",
+    "price": 199.99,
+    "actual_price": 250,
+    "stock": 250,
+    "description": "Reliable and affordable Android smartphone perfect for essential communication and social media use.",
+    "image": "https://placehold.co/400x300/fce4ec/e91e63?text=Budget+Phone",
+    "rating": 3.5
+  },
+  {
+    "id": 6,
+    "name": "Portable Bluetooth Speaker",
+    "category": "Audio",
+    "brand": "AquaBeat",
+    "price": 75.00,
+    "actual_price": 99,
+    "stock": 150,
+    "description": "Waterproof and rugged speaker with powerful bass and 10 hours of playtime—perfect for outdoor adventures.",
+    "image": "https://placehold.co/400x300/e6fff2/00c853?text=Speaker",
+    "rating": 4.2
+  }
+  ,
+  {
+    "id": 7,
+    "name": "Smartphone Z Fold",
+    "category": "Mobiles",
+    "brand": "TechCorp",
+    "price": 999.00,
+    "actual_price": 1250,
+    "stock": 120,
+    "description": "A revolutionary foldable smartphone with a 7.6-inch dynamic AMOLED display and professional-grade camera system.",
+    "image": "https://placehold.co/400x300/e0f7fa/00bcd4?text=Fold+Phone",
+    "rating": 4.5
+  },
+  
+  {
+    "id": 8,
+    "name": "Smartphone Z Fold",
+    "category": "Mobiles",
+    "brand": "TechCorp",
+    "price": 999.00,
+    "actual_price": 1250,
+    "stock": 120,
+    "description": "A revolutionary foldable smartphone with a 7.6-inch dynamic AMOLED display and professional-grade camera system.",
+    "image": "https://placehold.co/400x300/e0f7fa/00bcd4?text=Fold+Phone",
+    "rating": 4.5
+  }
+]

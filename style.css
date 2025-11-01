@@ -1,0 +1,1299 @@
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; /* Ensure container takes full height of parent flex item */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Top Bar Styling */
+.top-bar {
+    background-color: #333333; /* Dark background from image */
+    color: #cccccc; /* Light gray text */
+    font-size: 0.85em;
+    padding: 8px 0;
+    max-width: 1500px;
+    position: relative;
+    left: 20px;
+}
+
+.top-bar .container {
+    justify-content: space-between;
+}
+
+.top-bar p {
+    margin: 0;
+}
+
+.top-bar-links a {
+    color: #bbbbbb;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.top-bar-links a:hover {
+    color: #ffffff;
+}
+
+
+/* --- Menu Toggle (Hamburger Icon) Styling --- */
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none; /* Default: Hide on large screens */
+    color: #333;
+    padding: 10px;
+    outline: none;
+}
+
+/* --- Class to show the menu in JS --- */
+.nav-links.active {
+    display: flex; /* When active, show the links */
+    flex-direction: column;
+}
+/* Navbar Styling */
+.navbar {
+    background-color: #ffffff; /* White background for navbar */
+    padding: 15px 0;
+    border-bottom: 1px solid #eeeeee; /* Optional: subtle bottom border */
+}
+
+.navbar .container {
+    height: auto; /* Allow navbar container to adjust height */
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 5px 10px;
+}
+
+.navbar-brand .brand-prefix {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2px 5px;
+    margin-right: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* Space between links */
+}
+
+.nav-links li a {
+    color: #555555;
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    position: relative; /* For underline effect */
+}
+
+.nav-links li a:hover {
+    color: #000000;
+}
+
+/* Optional: Underline on hover for nav links */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust distance from text */
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+
+.add-to-cart .cart-icon {
+    background-color: #333333; /* Dark background for cart */
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px; /* Slightly rounded corners */
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+}
+
+.add-to-cart .cart-icon i {
+    margin-right: 8px; /* Space between icon and number */
+    font-size: 1.1em;
+}
+
+.add-to-cart .cart-icon span {
+    font-weight: bold;
+}
+
+.add-to-cart .cart-icon:hover {
+    background-color: #555555; /* Slightly lighter on hover */
+}
+
+/* --- Responsive adjustments (Mobile View) --- */
+@media (max-width: 768px) {
+    .container {
+        flex-wrap: wrap; 
+        /* Ensure navbar items are not aligned on one row in mobile */
+        justify-content: space-between; 
+    }
+
+    /* Top Bar Mobile Layout */
+    .top-bar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .top-bar p, .top-bar-links {
+        margin-bottom: 5px;
+    }
+    .top-bar-links a {
+        margin: 0 10px;
+    }
+
+    /* Navbar Mobile Layout */
+    .navbar .container {
+        /* Align brand, toggle, and cart on a single row */
+        flex-direction: row; 
+        align-items: center;
+    }
+    
+    /* Show the Hamburger icon */
+    .menu-toggle {
+        display: block; 
+    }
+
+    /* Hide the Navigation Links by default */
+    .nav-links {
+        display: none; /* Hide the menu links */
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        text-align: center;
+        /* When menu is active, it takes up the full width below the header items */
+        order: 4; 
+    }
+    
+    .nav-links li a {
+        padding: 5px 0;
+    }
+    
+    /* Move Cart icon closer to the toggle */
+    .add-to-cart {
+        order: 3;
+        margin-left: auto; /* Push it to the right */
+    }
+    
+    /* Ensure Brand is on the left */
+    .navbar-brand {
+        order: 1;
+    }
+}
+
+
+
+/* --- Hero Section Styling --- */
+.hero-section {
+    background-image: linear-gradient(to right, #3164c3, #bebdca); /* Blue gradient background */
+    color: #ffffff;
+    padding: 70px 0 80px 0; /* Adjust padding as needed, especially for wave */
+    position: relative; /* For the wave shape positioning */
+    overflow: hidden;
+    height: 85vh; /* To contain the wave if it extends out */
+}
+
+.hero-section .hero-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10; /* Ensure content is above the wave */
+}
+
+.hero-text-content {
+    flex: 1; /* Takes up available space */
+    max-width: 60%; /* Limit width to leave space for image */
+    text-align: left;
+    padding-right: 40px; /* Space between text and image */
+}
+
+.hero-tagline {
+    font-size: 0.7em;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    color: #0a2456;
+}
+
+.hero-title {
+    font-size: 2.2em; /* Large heading */
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #053da3;
+}
+
+.hero-description {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.hero-button {
+    background-color: #333333; /* Dark button background */
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 0.7em;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    word-spacing: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #555555; /* Lighter on hover */
+}
+
+.hero-image-content {
+    flex: 1; /* Takes up remaining space */
+    max-width: 50%; /* Limit width */
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+    align-items: center;
+}
+
+.hero-image {
+    max-width: 100%; /* Ensure image fits container */
+    height: auto;
+    display: block;
+}
+
+/* --- Wave Shape Styling (SVG) --- */
+.wave-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg); /* Rotate to make it bottom-facing */
+    z-index: 1; /* Put behind content */
+}
+
+.wave-shape svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 120px; /* Height of the wave */
+}
+
+.wave-shape .shape-fill {
+    fill: #f8f8f8; /* Background color of the next section/body */
+}
+
+
+/* --- Responsive adjustments for Hero Section --- */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0 80px 0;
+    }
+
+    .hero-section .hero-content-container {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center;
+    }
+
+    .hero-text-content {
+        max-width: 100%; /* Full width for text */
+        padding-right: 0;
+        margin-bottom: 40px; /* Space between text and image */
+    }
+
+    .hero-title {
+        font-size: 2.5em; /* Smaller title on mobile */
+    }
+
+    .hero-image-content {
+        max-width: 100%; /* Full width for image */
+        justify-content: center; /* Center the image */
+    }
+
+    .hero-image {
+        max-width: 80%; /* Shrink image a bit on mobile */
+    }
+
+    /* Adjust wave height if needed for mobile */
+    .wave-shape svg {
+        height: 80px;
+    }
+}
+
+
+
+
+
+/* --- Offer Cards Section Styling --- */
+.offer-cards-section {
+    background-color: #f8f8f8; /* Matches body background below wave */
+    padding: 20px 0; 
+   /* Adjust vertical spacing */
+}
+
+.offer-cards-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+   
+}
+
+.offer-card {
+    flex: 1; /* Each card takes equal space */
+    min-width: 280px; /* Minimum width for cards before wrapping */
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    overflow: hidden; /* Ensures image doesn't overflow */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px; /* Internal padding for content */
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+}
+
+.offer-card .card-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 15px; /* Space between text and image */
+}
+
+.offer-card .card-tagline {
+    font-size: 0.7em;
+    color: #586776; /* Blue color for tag (can be customized) */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.offer-card .card-title {
+    font-size: 1.4em;
+    font-weight: 550;
+    line-height: 1.1;
+    color: #241919;
+    margin-bottom: 15px;
+}
+
+.offer-card .card-button {
+    font-size: 0.9em;
+    font-weight: 600;
+   color: #586776; /* Blue color for button text */
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block; /* For underline effect */
+    padding-bottom: 3px; /* Space for underline */
+}
+
+.offer-card .card-button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff; /* Underline color */
+    transform: scaleX(0); /* Hidden by default */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-out;
+}
+
+.offer-card .card-button:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
+}
+
+.offer-card .card-image {
+
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Align image to the right within its flex container */
+    align-items: center;
+}
+
+.offer-card .product-image {
+    max-width: 120px; /* Control image size within the card */
+    height: auto;
+    display: block;
+    object-fit: contain; /* Ensure image fits without distortion */
+}
+
+
+
+
+/* --- Responsive adjustments for Offer Cards --- */
+@media (max-width: 1024px) {
+    .offer-cards-container {
+        flex-wrap: wrap; /* Allow cards to wrap to next line */
+        justify-content: center; /* Center cards when wrapped */
+    }
+
+    .offer-card {
+        flex: 0 0 calc(50% - 20px); /* Two cards per row with gap */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .offer-cards-section {
+        padding: 40px 0;
+    }
+    .offer-cards-container {
+        flex-direction: column; /* Stack cards vertically on smaller mobiles */
+        align-items: center;
+        /* More space when stacked */
+    }
+
+    .offer-card {
+        flex: 0 0 90%; /* Take almost full width */
+        padding: 20px;
+        flex-direction: column; /* Stack text and image vertically */
+        text-align: center;
+    }
+
+    .offer-card .card-text {
+        padding-right: 0;
+        margin-bottom: 20px; /* Space between text and image when stacked */
+    }
+
+    .offer-card .card-image {
+        justify-content: center; /* Center image when stacked */
+    }
+
+    .offer-card .product-image {
+        max-width: 100px; /* Adjust image size for very small screens */
+    }
+
+    .offer-card .card-title {
+        font-size: 1.2em;
+    }
+}
+
+
+
+
+/* --- Features Section Styling --- */
+.features-section {
+   background-color: #ffff;
+    align-items: center;
+    border-radius: 5px;
+     display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 60px 10px;
+   /* Subtle separator for section below */
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: flex-start; /* Align all items to the top (important for multi-line text) */
+    gap: 20px; /* Space between feature items */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feature-item {
+    flex: 1; /* Each item takes equal space */
+    min-width: 200px; /* Minimum width to prevent excessive squeezing */
+    display: flex;
+    align-items: flex-start; /* Icon and text aligned to the top */
+    text-align: left;
+}
+
+.feature-icon {
+    font-size: 2em; /* Large icon size */
+    color: #4b6cb7; /* Blue/Purple color from the image */
+    margin-right: 15px; /* Space between icon and text */
+    padding-top: 5px; /* Align icon better with text */
+}
+
+.feature-text h4 {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 3px;
+}
+
+.feature-text p {
+    font-size: 0.9em;
+    color: #777777;
+    margin: 0;
+}
+
+/* --- Responsive adjustments for Features Section --- */
+@media (max-width: 1024px) {
+    .features-container {
+        flex-wrap: wrap; /* Allow features to wrap */
+        justify-content: space-between; /* Space out items on two rows */
+    }
+
+    .feature-item {
+        flex: 0 0 calc(50% - 20px); /* Two items per row with gap */
+        margin-bottom: 30px; /* Space below wrapped items */
+    }
+}
+
+@media (max-width: 768px) {
+    .features-section {
+        padding: 40px 0;
+    }
+    .features-container {
+        flex-direction: column; /* Stack all items vertically on mobile */
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .feature-item {
+        flex: 0 0 100%; /* Full width */
+        min-width: unset;
+    }
+    
+    .feature-icon {
+        font-size: 1.8em;
+    }
+}
+
+
+
+
+/* --- Why Choose Us Section Styling --- */
+.why-choose-us {
+    background-color: #ffffff;
+    padding: 80px 0;
+    margin-top: 10px;
+}
+
+.choose-us-header {
+    text-align: start;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.section-title {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    font-size: 0.9em;
+    color: #666666;
+    /* position:relative;
+  right: 230px; */
+}
+
+.choose-us-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically align items */
+    gap: 40px; /* Space between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feature-column {
+    flex: 1; /* Each column takes equal space */
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between individual features */
+}
+
+.choose-us-feature {
+    position: relative;
+    padding-left: 40px; /* Space for the number */
+    text-align: left;
+}
+
+.feature-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #8b8be8; /* Light purple/blue color for numbers */
+    opacity: 0.6;
+}
+
+.choose-us-feature h3 {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.choose-us-feature p {
+    font-size: 0.9em;
+    color: #777777;
+    line-height: 1.6;
+}
+
+.middle-image {
+    flex: 0 0 auto; /* Do not grow or shrink */
+    text-align: center;
+    max-width: 400px; /* Control image size */
+}
+
+.illustration-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Responsive adjustments for Why Choose Us Section --- */
+@media (max-width: 1024px) {
+    .choose-us-content {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 60px;
+    }
+
+    .feature-column {
+        flex-direction: row; /* Features in columns go side-by-side */
+        flex-wrap: wrap; /* Allow features to wrap */
+        justify-content: center;
+        gap: 30px; /* Space between features when wrapped */
+    }
+
+    .choose-us-feature {
+        flex: 0 0 calc(50% - 20px); /* Two features per row */
+        max-width: calc(50% - 20px);
+        padding-left: 0; /* No padding for number */
+        text-align: center; /* Center text */
+    }
+
+    .feature-number {
+        position: static; /* Number flows with text */
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .middle-image {
+        order: -1; /* Move image to the top on mobile */
+        margin-bottom: 40px;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .why-choose-us {
+        padding: 50px 0;
+    }
+    .section-title {
+        font-size: 2em;
+    }
+    .section-description {
+        font-size: 1em;
+    }
+
+    .choose-us-feature {
+        flex: 0 0 100%; /* One feature per row */
+        max-width: 100%;
+    }
+
+    .feature-number {
+        font-size: 1.3em;
+    }
+}
+
+/* --- 1. Default Hidden State for Scroll Reveal --- */
+.scroll-reveal {
+    opacity: 0; /* Make it transparent */
+    transform: translateY(50px); /* Move it 50px down */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Apply transition over 0.8 seconds */
+    will-change: opacity, transform; /* Performance optimization */
+}
+
+/* --- 2. Active/Visible State --- */
+.scroll-reveal.active {
+    opacity: 1; /* Make it fully visible */
+    transform: translateY(0); /* Move it back to its original position */
+}
+
+/* --- Default Hidden State for individual features --- */
+.choose-us-feature {
+    /* Existing styles remain */
+    position: relative;
+    padding-left: 40px; 
+    /* ... other styles ... */
+    
+    /* New styles for hidden state */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+}
+
+/* --- Active/Visible State for individual features --- */
+.choose-us-feature.feature-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* --- Footer Styling --- */
+.main-footer {
+    background-color: #1a1a1a; /* Dark background as in image */
+    color: #cccccc; /* Light text color */
+    padding-top: 60px;
+    font-size: 0.9em;
+}
+
+.footer-content-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Space between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px; /* Bottom padding for content before bottom bar */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+}
+
+.footer-column {
+    flex: 1; /* Each column takes equal space initially */
+    min-width: 220px; /* Minimum width to prevent content from squishing too much */
+    margin-bottom: 20px; /* Space for wrapped columns */
+}
+
+/* Column 1: Store Info */
+.footer-info .footer-brand {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 5px 10px;
+    display: inline-block; /* To apply padding and border */
+    margin-bottom: 20px;
+}
+
+.footer-info .footer-brand .brand-prefix {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    padding: 2px 5px;
+    margin-right: 3px;
+}
+
+.store-description {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #aaaaaa;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 10px;
+}
+
+.payment-methods .payment-icon {
+    width: 30px; /* Size of payment icons */
+    height: 30px;
+    filter: invert(100%); /* Adjust for dark background if icons are dark */
+    opacity: 0.7;
+}
+
+/* Columns 2 & 3: Links */
+.footer-links h4 {
+    font-size: 1em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-links ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #cccccc;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #ffffff;
+}
+
+/* Column 4: Newsletter */
+.footer-newsletter h4 {
+    font-size: 1em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-newsletter p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #aaaaaa;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-wrap: wrap; /* Allow input and button to wrap */
+    gap: 10px;
+}
+
+.newsletter-input {
+    flex: 1; /* Input takes up available space */
+    padding: 12px 15px;
+    border: 1px solid #444444;
+    background-color: #333333;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 0.9em;
+    min-width: 150px; /* Minimum width for input */
+}
+
+.newsletter-input::placeholder {
+    color: #999999;
+}
+
+.newsletter-button {
+    background-color: #4b6cb7; /* Blue/Purple button */
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-button:hover {
+    background-color: #5a4bfa; /* Slightly darker/different shade on hover */
+}
+
+
+/* --- Footer Bottom Bar --- */
+.footer-bottom {
+    background-color: #0d0d0d; /* Even darker background for bottom bar */
+    padding: 20px 0;
+    text-align: center;
+    margin: 0 auto;
+    border-top: 1px solid #2a2a2a; /* Subtle line above copyright */
+}
+
+.footer-bottom p {
+    margin: 0 auto;
+    color: #999999;
+    font-size: 0.8em;
+}
+
+
+/* --- Responsive adjustments for Footer --- */
+@media (max-width: 992px) {
+    .footer-content-container {
+        justify-content: center; /* Center columns when wrapped */
+        text-align: center;
+    }
+    .footer-column {
+        flex: 0 0 calc(50% - 20px); /* Two columns per row */
+        max-width: calc(50% - 20px);
+    }
+    .footer-info .footer-brand,
+    .footer-links h4,
+    .footer-newsletter h4 {
+        margin: 0 auto 20px auto; /* Center headings */
+    }
+    .payment-methods {
+        justify-content: center;
+    }
+};
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding-top: 40px;
+    }
+    .footer-content-container {
+        flex-direction: column; /* Stack all columns vertically */
+        align-items: center;
+        text-align: center;
+    }
+    .footer-column {
+        flex: 0 0 100%;
+        max-width: 90%; /* Adjust width for better readability on small screens */
+        margin-bottom: 40px;
+    }
+    .footer-newsletter .newsletter-form {
+        flex-direction: column; /* Stack input and button */
+        align-items: center;
+    }
+    .newsletter-input, .newsletter-button {
+        width: 100%;
+        max-width: 300px; /* Limit max width for form elements */
+      }
+}
+
+
+/* product card */
+
+.section-products {
+    padding: 20px 0; /* Vertical spacing for the whole section */
+   /* Ensure it takes up at least the full viewport height */
+}
+
+/* Centralized Container for content (Assuming a centered, fixed-max-width layout) */
+.container, .containers {
+    max-width: 1200px; /* Max width for large screens */
+   
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* ---------------------------------- */
+/* HEADING STYLES                     */
+/* ---------------------------------- */
+
+.section-common-heading {
+    text-align: center;
+    font-size: 1.5rem; /* Large, prominent heading */
+    font-weight: 600; /* Extra bold */
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+/* Simple underline effect for the heading */
+.section-common-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Short, centered line */
+    height: 4px;
+    background-color: #007bff; /* Primary brand color (blue) */
+    border-radius: 2px;
+}
+
+
+/* ---------------------------------- */
+/* PRODUCT GRID LAYOUT                */
+/* ---------------------------------- */
+
+#productContainer {
+    /* Use CSS Grid for a highly responsive and flexible product layout */
+    display: grid;
+    gap: 30px; /* Space between the product cards */
+    padding: 20px 0;
+    
+    /* Default: 1 column for small screens/mobile */
+    grid-template-columns: 1fr; 
+}
+
+/* Tablet view: 2 columns */
+@media (min-width: 640px) {
+    #productContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop view: 3 columns */
+@media (min-width: 1024px) {
+    #productContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Large Desktop view: 4 columns */
+@media (min-width: 1280px) {
+    #productContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* templatecard */
+
+/* Base Styles for the Product Card */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 1rem; /* Softly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem; /* Overall padding inside the card */
+    max-width: 300px; /* Example max-width, adjust as needed for grid */
+    margin: 0 auto; /* Center card in its grid column */
+    font-family: 'Arial', sans-serif; /* Example font, match your global font */
+    color: #333;
+}
+
+/* Category Tag (e.g., "Computers", "Mobiles") */
+.product-category-tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #666;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+    align-self: flex-start; /* Aligns tag to the left, prevents full width */
+}
+
+/* Product Image Styling */
+.product-image-container {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0 1rem; /* Padding inside for the image, matching the example */
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 180px; /* Control image height */
+    object-fit: contain; /* Ensure image fits without cropping */
+    display: block; /* Remove extra space below image */
+    margin: 0 auto; /* Center image */
+}
+
+/* Product Details Section */
+.product-details {
+    padding: 0 0.5rem; /* Slight internal padding for details */
+    flex-grow: 1; /* Allows details section to take available space */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    color: #222;
+}
+
+.product-rating {
+    color: #ffc107; /* Standard star yellow */
+    font-size: 0.85rem;
+    margin-bottom: 0.7rem;
+}
+
+.product-rating i {
+    margin-right: 2px;
+}
+
+.product-description {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    flex-grow: 1; /* Allows description to grow */
+}
+
+/* Price Information */
+.product-price-info {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 0.7rem;
+}
+
+.product-current-price {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #333; /* Darker current price */
+    margin-right: 0.6rem;
+    margin-bottom: 0;
+}
+
+.product-old-price {
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-bottom: 0;
+}
+
+/* Stock Information */
+.product-stock-text {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+}
+
+.product-stock-count {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Quantity Control */
+.product-quantity-control {
+    margin-top: 0.5rem; /* Space from stock info */
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Space before add to cart button */
+}
+
+.quantity-label {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.quantity-input-group {
+    display: flex;
+    align-items: center;
+    width: 110px; /* Fixed width as seen in the image */
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.quantity-decrement-btn,
+.quantity-increment-btn {
+    background-color: #f8f8f8;
+    border: none;
+    color: #333;
+    padding: 0.4rem 0.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.quantity-decrement-btn:hover,
+.quantity-increment-btn:hover {
+    background-color: #eee;
+}
+
+.product-quantity-value {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.4rem 0;
+    margin: 0;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+    width: 100%;
+    background-color: #212529; /* Dark background matching the image */
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #343a40;
+}
+
+.add-to-cart-btn .cart-icon {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 375px) {
+    .product-card {
+        padding: 0.8rem;
+    }
+
+    .product-name {
+        font-size: 1.2rem;
+    }
+
+    .product-description,
+    .product-stock-text,
+    .quantity-label {
+        font-size: 0.8rem;
+    }
+
+    .product-current-price {
+        font-size: 1.25rem;
+    }
+
+    .product-old-price {
+        font-size: 0.85rem;
+    }
+
+    .quantity-input-group {
+        width: 100px;
+    }
+
+    .add-to-cart-btn {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.95rem;
+    }
+}
