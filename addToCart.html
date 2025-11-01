@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+    .cart-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    background-color: #ffffff;
+    border-radius: 1rem; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    
+    /* Ensure it wraps nicely on small screens */
+    flex-wrap: wrap; 
+}
+
+/* Category Tag Style (e.g., "Computers") */
+.cart-item-category {
+    background-color: #f0f0f0;
+    color: #777;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.4rem;
+    font-weight: 500;
+    margin-right: 1.5rem; 
+    flex-shrink: 0;
+}
+
+/* Product Image and Name Group */
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1; /* Allows this section to push content apart */
+    min-width: 180px; /* Minimum width to prevent crushing of image/name */
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 0.4rem;
+    flex-shrink: 0;
+}
+
+.cart-item-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+/* Price */
+.cart-item-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0 2rem;
+    min-width: 80px; /* Ensures price column is stable */
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* Quantity Control Group (The + 7 - box) */
+.cart-item-quantity-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 0 2rem;
+    flex-shrink: 0;
+}
+
+.quantity-control-btn {
+    background: none;
+    border: none;
+    color: #333;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    line-height: 1;
+}
+
+.quantity-control-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.quantity-value {
+    /* Separator lines between buttons and value */
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    user-select: none; 
+}
+
+/* Remove Button (Dark Style) */
+.cart-item-remove-btn {
+    background-color: #343a40; /* Dark background */
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.cart-item-remove-btn:hover {
+    background-color: #495057;
+}
+
+
+/* --- Responsive Adjustments for Mobile --- */
+@media (max-width: 768px) {
+    .cart-item-container {
+        /* Stack elements vertically on smaller screens */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .cart-item-category {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .cart-item-info,
+    .cart-item-price,
+    .cart-item-quantity-group,
+    .cart-item-remove-btn {
+        margin: 0.25rem 0; /* Consistent vertical spacing */
+        width: 100%; /* Take full width */
+        min-width: auto;
+        text-align: left;
+    }
+    
+    .cart-item-price {
+        /* Realign price to the left for clarity on mobile */
+        text-align: left; 
+    }
+
+    .cart-item-quantity-group {
+        /* Center quantity control on smaller screens */
+        justify-content: center;
+        width: 150px; 
+        margin: 0.5rem auto; /* Center it */
+    }
+    
+    .cart-item-remove-btn {
+        margin-top: 1rem; /* Push button down from other elements */
+    }
+}
+
+</style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container">
+                <p>Free shipping, 30-day return or refund guarantee.</p>
+                <div class="top-bar-links">
+                    <a href="#">SIGN IN</a>
+                    <a href="#">SIGN UP</a>
+                </div>
+            </div>
+        </div>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="navbar-brand">
+            <span class="brand-prefix">KAMAL-HARAMI</span> STORE
+        </a>
+        
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">PRODUCTS</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+
+        <div class="add-to-cart">
+            <a href="./addToCart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart_count">0</span>
+            </a>
+        </div>
+    </div>
+</nav>
+    </header>
+
+    <div class="cart-item-container">
+
+  <!-- 1. Category Tag (on the left) -->
+  <span class="cart-item-category">Computers</span>
+
+  <!-- 2. Image and Name (centered vertically) -->
+  <div class="cart-item-info">
+    <img src="https://placehold.co/80x60/f5f5f5/333333?text=Laptop" alt="Product Image" class="cart-item-image">
+    <p class="cart-item-name">Laptop</p>
+  </div>
+
+  <!-- 3. Price -->
+  <p class="cart-item-price">$999.99</p>
+
+  <!-- 4. Quantity Control Group -->
+  <div class="cart-item-quantity-group">
+    <button class="quantity-control-btn quantity-increment-btn">+</button>
+    <span class="quantity-value">7</span>
+    <button class="quantity-control-btn quantity-decrement-btn">-</button>
+  </div>
+
+  <!-- 5. Remove Button -->
+  <button class="cart-item-remove-btn">Remove</button>
+</div>
+
+
+    
+    <footer class="main-footer">
+    <div class="container footer-content-container">
+        <div class="footer-column footer-info">
+            <a href="#" class="footer-brand">
+                <span class="brand-prefix">Kamal-Harami</span> STORE
+            </a>
+            <p class="store-description">
+                Welcome to Kamal-Harami EcomStore, your ultimate destination for cutting-edge gadgets!
+            </p>
+            <div class="payment-methods">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAARVBMVEVHcEzx6fWoh8uLYLmeecaFV7lzQK5pMalfJZ99TrV3RbFbHZ2TbMFSBpl0Qa6Qbbusk8vr5PP+/v/QwuLd0+qCVrWUbMPMLHQGAAAAF3RSTlMACCZVPKzj/P+LyP9///T///////9joJsk/FcAAAD9SURBVHgBfdIHgoMwDERRugZkg2vuf1S3Vext+el5dDT15mVd122Z/mjbDwJAdJw/fbkgMWifR1PEAGstfm/dTpQeYyBKSkyhZp3zWpi2ZhuhxEXNW++52HwwvjQMynvB2L7nNLxzj2ZGiZaMFxd7Wi7rczd95TMk5HRwQxX5mKYVFU3REOq7h2w3osZ5XZvfrbOa0VqnF1oFCQXFED/j+QmjYD3HEWmTiwcu5+iDeyMf+QIe8sO7miB2uSdVjffGNpT7styiOvdGvuptWdGrKNentg9orG+oZCavrgy5JVJft49Qb443uOOx/RhcdVATuuL8x8xHdZ5qHeY9AU6SGPeEW1olAAAAAElFTkSuQmCC" alt="Payment Methods" class="PhonePe-icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADmUlEQVR4Ab1XA5AjQRQ9G6UrnV0627Zt27Zt27Zt27Z9FyeXiZN3v1NzW9vTmd3J6lW9cKbf6690EmlFIBDIQGzr9/vXE+8RjUSPTIP82Xq6pg27VvPCGoTz08KbiE5oBF3rIG6ge/PGWBhAGlpkAdEHzRCMeInzyEjqcHedj258gbgBM/KU1syjVbwo3aBHCPh+foe0YyMsw/vC0KI2dDVLQ1ejFAzNasI8tDekLWvh+/5VzYQOQGENOxfFfb9+wDplNHTVS0JXrUTUpGusk0aye0Ka4CPBi6cNFXbn2RPQ16vIi2igvn4luC6dVUuHWBOs4KCAtGtzOKICbXOnqKVjbqhW8yl2rrqwqUcb2Nctg/P4QThPHKLXy2Hq2ZYXXzgTCARUu4NLBetzZbHp61YQhI3tG8N9/zbU4L53C4bW9fF3+XwtnbH+f79nVA4Z++IBgri5fxcEbDZEh4Bk19qaEkUhPQt/W24Bxwd4z6SEdVSOCHHWcn6LCXEN0m7Fwr+ec/ZpJrznkwcpLcsEfZ3icJ4+hvgAaa9hBu5x+X9Qk4lH0H0wJ+D1xpeB28yAEZHgvZqFM+B71gZRoeoMu2ZeeuEVBhMz4OEMXEjJGfC/nxBnBnbc8CgNuBPUwKYr7pAGDFGm4GnrODOw97YQAZ1YhA9rcQa+Xy0Ij9+LcPFR5xcMXHnlFYtQbMPZEeLHTuRE+d2NcfjDeYSL3bc8goFfloDYhuwMxw+iT3CcT42Zh4uh+O5mQdY83BUGpxla8dcZQPPFEifeeY0j1CBqGTxskhPu20W3pjJhju3PjIDFHf0o9viAUbucwu73iPmXAKT7/2O0AZHw065Dxf3tBBP1j/bC1R/3oYa35s/odmQ3CVo5cRYNh1sI/9rIP8d5/X6+0k59vioLi2x+ciAWPNyEvW9PYd+701jxdAe6nx+HErubB78vtXkUqsz5FmHg2mufUtxDmrmVB5J5UGDb6yOCuFaW2NEZFRfeFXpfNjBL7Rj+DAqc+XKd0tE+bAOl9rTEuqdHQok/BpBK7VyYRz69cvgl6THu5iKU3NNck3ivixPxyvQhlPhvALmi+0NSmDfBF+eWV4fQ//JU1DnSA6X3tmQ7pTbthh4XJgRr4bXpI2QI4rTBQurKYiSeIo7Awi7sXIOJ1Oz0SvTGQthDnKWW83CisZ4ohSEsEdfKrRY3YAdIYis2v4m3iTqiW6ZO/mwNG6/yhNOEf6HhfzYhUKeuAAAAAElFTkSuQmCC" alt="Payment Methods" class="Gpay-icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVR4AWP4//8/IyUYwwAWvXx3IJ6JBU8H4lQgZsdrAFThfzz4MBCzkmcAAkcTa8BfIL4LxK/RDOgl1oCPUDF2IP6OJD6deAMQ4h/JMeAzECsDsSEQ/yTJAAK4lVIDnCkxYCLRCQka8ulQnAjEujB1JMYCAg8NA1yRcmAtIQMA+btEVcQPmh8AAAAASUVORK5CYII=" alt="Payment Methods" class="payment-icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACZElEQVRYhe2XTUhUURiGnzP/Y3fGGWawbCrNdKCCImosw35oECTITZsyAgVxUQmViyJaBG7aBi3a1CaiiKLcJKVBmUWzqRa2EMMgRTOZwdQZx3vn3tviBqVCXm3GofBbnu/wfQ/vec+f0HVdJ49hyWfzFYAVgJwDpBUYT+UJIPYZvNfAV7DMAIoKrY9hzwNoKV94vi2bzV/0QUMHFFihzAEHy5YJICXD+XZ4NAjrXCCAMQUiJcsA8KQXGp9BwP6ruaZDyAlrCnMIIKvQcA9efgOfDXx2cFpgIgNpDU6EzdVZsglf9UPnKExpUB+G7mboSxoKTKtQvdFcnSUr0NUPRQ5or4ciRugdLsYmjFw8AztNrP9fAQQ98PEMtF68yuZwCWLLcQoskNFhrx8kZ44BDkjvEaHLMBxnZOg+TZ3gthryH6kwX2fRHpBlhaaWNiKRs+Cyg89LMLSBnjhYBaQ0qCo1X29RCjztek3t4SsQdCCFA0wlZc41H+LdIPitxpxEBnaszzLA5FSSxlNtPLwdw1Xuw2b56bYJhdpoJd2fDPllDY6GQIgsA3g9dbDWjRT2zyFLU1W5jUt3wWWBSRVqNplvDiY8MDj0FVCRJMes8RlVo3hrAKQgX6bBIiCpwm6T2880wJvYByicv6eUlMLpk1FiA+Cxgo5xCFWszjJAR9db8DrmJ8Zlovt38bzfWP8ZDY6ZPP1+D7HQv0CICPgC81ETY6Sne1h13U2pHUYVuFMDddsXB/BHEyYS37lx8wJOp312QgebVaDZ3dyqBofNuJz2mXiAzI0FFch1/N+v4hWAfwLgB5oWrDfdjFgPAAAAAElFTkSuQmCC" alt="Payment Methods" class="RazorPay-icon">
+            </div>
+        </div>
+
+        <div class="footer-column footer-links">
+            <h4>SHOPPING</h4>
+            <ul>
+                <li><a href="#">Computer Store</a></li>
+                <li><a href="#">Laptop Store</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Sales & Discount</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column footer-links">
+            <h4>Experience</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Payment Method</a></li>
+                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Return and Exchange</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column footer-newsletter">
+            <h4>NEWSLETTER</h4>
+            <p>Be the first to know about new arrivals, sales & exclusive offers!</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your Email" class="newsletter-input">
+                <button type="submit" class="newsletter-button">SUBSCRIBE</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2023 Kamal-Harami EcomStore. Design and Code by: Kamal-Harami Coder</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
