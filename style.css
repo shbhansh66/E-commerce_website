@@ -35,9 +35,9 @@ ul {
     color: #cccccc; /* Light gray text */
     font-size: 0.85em;
     padding: 8px 0;
-    max-width: 1500px;
+    max-width: 100%;
     position: relative;
-    left: 20px;
+    
 }
 
 .top-bar .container {
@@ -185,6 +185,8 @@ ul {
         flex-direction: row; 
         align-items: center;
     }
+
+   
     
     /* Show the Hamburger icon */
     .menu-toggle {
@@ -215,6 +217,7 @@ ul {
     /* Ensure Brand is on the left */
     .navbar-brand {
         order: 1;
+        font-size: 0.7rem;
     }
 }
 
@@ -344,7 +347,7 @@ ul {
     }
 
     .hero-title {
-        font-size: 2.5em; /* Smaller title on mobile */
+        font-size: 1.8em; /* Smaller title on mobile */
     }
 
     .hero-image-content {
@@ -379,6 +382,7 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+   
    
 }
 
@@ -483,17 +487,19 @@ ul {
 
 @media (max-width: 768px) {
     .offer-cards-section {
-        padding: 40px 0;
+        padding: 10px 0;
+       
     }
+   
     .offer-cards-container {
-        flex-direction: column; /* Stack cards vertically on smaller mobiles */
+        flex-direction: col; /* Stack cards vertically on smaller mobiles */
         align-items: center;
         /* More space when stacked */
     }
 
     .offer-card {
         flex: 0 0 90%; /* Take almost full width */
-        padding: 20px;
+        padding: 10px;
         flex-direction: column; /* Stack text and image vertically */
         text-align: center;
     }
@@ -610,7 +616,7 @@ ul {
 /* --- Why Choose Us Section Styling --- */
 .why-choose-us {
     background-color: #ffffff;
-    padding: 80px 0;
+    padding: 40px 0;
     margin-top: 10px;
 }
 
@@ -1047,7 +1053,9 @@ ul {
 /* Tablet view: 2 columns */
 @media (min-width: 640px) {
     #productContainer {
-        grid-template-columns: repeat(2, 1fr);
+       
+       
+        grid-template-rows: repeat(1, 1fr);
     }
 }
 
@@ -1070,17 +1078,20 @@ ul {
 
 /* Base Styles for the Product Card */
 .product-card {
-    background-color: #ffffff;
+    background-color: #e8e0e0;
     border-radius: 1rem; /* Softly rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    
+    
     padding: 1rem; /* Overall padding inside the card */
     max-width: 300px; /* Example max-width, adjust as needed for grid */
-    margin: 0 auto; /* Center card in its grid column */
+    margin: 0  0 0 10px; /* Center card in its grid cell */
     font-family: 'Arial', sans-serif; /* Example font, match your global font */
     color: #333;
+    
 }
 
 /* Category Tag (e.g., "Computers", "Mobiles") */
