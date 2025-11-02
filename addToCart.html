@@ -7,83 +7,59 @@
     <link rel="stylesheet" href="./style.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-    .cart-item-container {
+    /*
+|--------------------------------------------------------------------------
+| REVISED RESPONSIVE CSS
+|--------------------------------------------------------------------------
+*/
+
+/* --- Global Layout/Containers (Apply to all sizes unless overridden) --- */
+
+/* Ensures the body content doesn't stretch too wide on desktop */
+.content-area-wrapper { 
+   
+    max-width: 1200px;
+    margin: 0 auto; /* Center the main content */
+    padding: 0 15px; /* Add some padding on the sides */
+}
+
+/* ------------------------------------------- */
+/* ---  DESKTOP/LARGE SCREEN STYLES (Default) --- */
+/* ------------------------------------------- */
+
+.cart-item-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
-    background-color: #ffffff;
-    border-radius: 1rem; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    background-color: #e7d1d1;
+    border-radius: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
-    
-    /* Ensure it wraps nicely on small screens */
-    flex-wrap: wrap; 
+    /* Removed margin-left: 20rem; to make it responsive. 
+       Now it will take up the available width within a parent container. */
+    max-width: 1000px;
+    margin: 10px auto 1rem auto; /* Center the item container */
+    flex-wrap: nowrap; /* Keep it in a single line on desktop */
 }
 
-/* Category Tag Style (e.g., "Computers") */
-.cart-item-category {
-    background-color: #f0f0f0;
-    color: #777;
-    font-size: 0.7rem;
-    padding: 0.2rem 0.6rem;
-    border-radius: 0.4rem;
-    font-weight: 500;
-    margin-right: 1.5rem; 
-    flex-shrink: 0;
+/* Cart Item Sub-Styles (Keep as is, they look good) */
+.cart-item-category { margin-right: 1.5rem; flex-shrink: 0; }
+.cart-item-info { display: flex; align-items: center; gap: 1rem; flex-grow: 1; min-width: 180px; }
+.cart-item-image { width: 80px; height: 60px; object-fit: contain; border-radius: 0.4rem; flex-shrink: 0; }
+.product-old-price {
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-bottom: 0;
 }
-
-/* Product Image and Name Group */
-.cart-item-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-grow: 1; /* Allows this section to push content apart */
-    min-width: 180px; /* Minimum width to prevent crushing of image/name */
-}
-
-.cart-item-image {
-    width: 80px;
-    height: 60px;
-    object-fit: contain;
-    border-radius: 0.4rem;
-    flex-shrink: 0;
-}
-
-.cart-item-name {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-    margin: 0;
-}
-
-/* Price */
-.cart-item-price {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #333;
-    margin: 0 2rem;
-    min-width: 80px; /* Ensures price column is stable */
-    text-align: right;
-    flex-shrink: 0;
-}
-
-/* Quantity Control Group (The + 7 - box) */
-.cart-item-quantity-group {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    margin: 0 2rem;
-    flex-shrink: 0;
-}
-
+.cart-item-price { margin: 0 2rem; min-width: 80px; text-align: right; flex-shrink: 0; }
+.cart-item-quantity-group { display: flex; align-items: center; border: 1px solid #ddd; border-radius: 0.5rem; overflow: hidden; margin: 0 2rem; flex-shrink: 0; }
+/* Quantity Control Buttons (+ and -) */
 .quantity-control-btn {
-    background: none;
+    background: none; /* No background fill */
     border: none;
-    color: #333;
+    color: #333; /* Dark text color */
     padding: 0.4rem 0.8rem;
     font-size: 1.1rem;
     font-weight: 400;
@@ -93,47 +69,102 @@
 }
 
 .quantity-control-btn:hover {
-    background-color: #f0f0f0;
+    background-color: #967171; /* Light highlight on hover */
 }
 
+.quantity-control-btn:active {
+    background-color: #bd0909; /* Darker feedback on click */
+}
+
+/* Quantity Value Display (The Number) */
 .quantity-value {
     /* Separator lines between buttons and value */
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     padding: 0.4rem 1rem;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 600; /* Bolder to stand out */
     color: #333;
-    user-select: none; 
+    user-select: none; /* Prevents the number from being selected/highlighted */
+    text-align: center;
+    min-width: 30px; /* Ensures space for double-digit numbers */
 }
-
-/* Remove Button (Dark Style) */
 .cart-item-remove-btn {
-    background-color: #343a40; /* Dark background */
-    color: #ffffff;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
     flex-shrink: 0;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(31, 25, 25);
+    color: white;
+    border: none;
+    box-shadow: 1px 8px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out; 
+    transform: scale(1);
 }
 
+/* New: Apply the scale transform on hover for the visual effect */
 .cart-item-remove-btn:hover {
-    background-color: #495057;
+    transform: scale(1.05); /* Enlarge the button by 5% */
 }
 
+/* Optional: Slightly reduce the button when it's actively clicked */
+.cart-item-remove-btn:active {
+    transform: scale(0.98);
+}
 
-/* --- Responsive Adjustments for Mobile --- */
+/* TOTAL COST CONTAINER (Desktop: Aligned to the right, below the cart items) */
+.totalCost-section-wrapper {
+    /* Use a parent wrapper to align the totalCost box */
+    max-width: 1000px; /* Match the cart-item-container width */
+    margin: 0 auto; /* Center the wrapper */
+    display: flex;
+   
+    justify-content: flex-end; /* Push the totalCost box to the right */
+    padding-top: 10px;
+}
+
+.totalCost {
+    /* Styles for the summary box itself */
+    border: 1px solid black;
+    max-width: 250px; /* Slightly wider for better text flow */
+    padding: 15px;
+    margin-bottom: 10px;
+    /* Removed the fixed margin-left: 70rem; for responsiveness */
+    width: 100%; /* Take up the width of the parent flex item */
+}
+
+.subTotal, .taxTotal, .finalTotal {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+    justify-content: space-between;
+    padding-right: 0; /* Remove right padding to use all available space */
+}
+
+.finalTotal{
+    border-top:1px solid black;
+    padding-top: 10px;
+    margin-top: 5px;
+}
+
+/* ------------------------------------------- */
+/* --- 📱 MOBILE STYLES (Max 768px) --- */
+/* ------------------------------------------- */
 @media (max-width: 768px) {
+    
+    /* Remove padding from the new wrapper on mobile */
+    .content-area-wrapper {
+        padding: 0;
+    }
+
+    /* CART ITEM CONTAINER */
     .cart-item-container {
-        /* Stack elements vertically on smaller screens */
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
         padding: 1rem;
+        max-width: 95%; /* Use almost full width */
+        margin: 10px auto 1rem auto; /* Center the item container */
     }
 
     .cart-item-category {
@@ -145,29 +176,41 @@
     .cart-item-price,
     .cart-item-quantity-group,
     .cart-item-remove-btn {
-        margin: 0.25rem 0; /* Consistent vertical spacing */
-        width: 100%; /* Take full width */
+        margin: 0.25rem 0;
+        width: 100%;
         min-width: auto;
         text-align: left;
     }
     
     .cart-item-price {
-        /* Realign price to the left for clarity on mobile */
         text-align: left; 
     }
 
     .cart-item-quantity-group {
-        /* Center quantity control on smaller screens */
-        justify-content: center;
-        width: 150px; 
-        margin: 0.5rem auto; /* Center it */
+        justify-content: space-around; /* Distribute buttons/value evenly */
+        width: 180px; /* Give it a reasonable fixed width */
+        margin: 0.5rem 0.5rem 0.5rem 0; /* Align left */
     }
     
     .cart-item-remove-btn {
-        margin-top: 1rem; /* Push button down from other elements */
+        margin-top: 1rem;
+    }
+
+    /* TOTAL COST CONTAINER */
+    .totalCost-section-wrapper {
+        /* On mobile, center the total cost box */
+        justify-content: center;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .totalCost {
+        /* Allow the cost box to stretch a bit more on smaller screens */
+        max-width: 350px;
+        width: 90%; 
+        margin: 0 auto;
     }
 }
-
 </style>
 </head>
 <body>
@@ -209,30 +252,55 @@
 </nav>
     </header>
 
-    <div class="cart-item-container">
+    <section class="productCartContainer">
 
-  <!-- 1. Category Tag (on the left) -->
-  <span class="cart-item-category">Computers</span>
 
-  <!-- 2. Image and Name (centered vertically) -->
-  <div class="cart-item-info">
-    <img src="https://placehold.co/80x60/f5f5f5/333333?text=Laptop" alt="Product Image" class="cart-item-image">
-    <p class="cart-item-name">Laptop</p>
-  </div>
+        
+    </section>
 
-  <!-- 3. Price -->
-  <p class="cart-item-price">$999.99</p>
 
-  <!-- 4. Quantity Control Group -->
-  <div class="cart-item-quantity-group">
-    <button class="quantity-control-btn quantity-increment-btn">+</button>
-    <span class="quantity-value">7</span>
-    <button class="quantity-control-btn quantity-decrement-btn">-</button>
-  </div>
+<template class="productCartTemplate">
 
-  <!-- 5. Remove Button -->
-  <button class="cart-item-remove-btn">Remove</button>
-</div>
+<div class="cart-item-container" id="cardValue">
+            <span class="cart-item-category">Computers</span>
+            <div class="cart-item-info">
+                <img src="https://placehold.co/80x60/f5f5f5/333333?text=Laptop" alt="Product Image" class="cart-item-image">
+                <p class="cart-item-name">Laptop</p>
+            </div>
+              <p class="product-old-price">₹3999</p>
+            <p class="cart-item-price">₹999.99</p>
+            <div class="cart-item-quantity-group">
+                <button class="quantity-control-btn quantity-increment-btn">+</button>
+                <span class="quantity-value">7</span>
+                <button class="quantity-control-btn quantity-decrement-btn">-</button>
+            </div>
+        
+            <button class="cart-item-remove-btn">Remove</button>
+        </div>
+        
+</template>
+
+        <div class="totalCost-section-wrapper">
+    
+            <section class="totalCost">
+                <h4 class="totalCostSummary">Selected Offer Summary</h4>
+                <div class="totalCostSelected">
+                    <div class="subTotal">
+                        <h5>Sub Total :</h5>
+                        <p>kgk</p>
+                    </div>
+                    <div class="taxTotal">
+                        <h5>Tax :</h5>
+                        <p>575</p>
+                    </div>
+                    <div class="finalTotal">
+                        <h5>Final Total :</h5>
+                        <p>kgk</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        </div>
 
 
     
@@ -290,6 +358,6 @@
     </div>
 </footer>
 
-<script type="module" src="script.js"></script>
+<script type="module" src="showAddToCart.js"></script>
 </body>
 </html>

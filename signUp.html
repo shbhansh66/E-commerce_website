@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Kamal-Harami Store</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General reset and body background */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Matching the website's blue gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px; /* Keep the form narrow and focused */
+}
+
+h2 {
+    text-align: center;
+    color: #1e3a8a; /* Deep blue heading */
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding doesn't widen the input */
+    font-size: 16px;
+}
+
+/* Primary Button Styling */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background-color: #3b82f6; /* Bright blue for the main action */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #1e3a8a; /* Darker blue on hover */
+}
+
+.switch-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.switch-form a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* style.css (Add this for OTP button) */
+.btn-secondary {
+    padding: 8px 15px;
+    background-color: #f7931e; /* Example: A contrasting color like orange */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+    float: right; /* To position it nicely next to the email field */
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #e0831a;
+}
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create Your Account</h2>
+        
+       <form action="register.php" method="POST">
+    <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required autocomplete="username">
+    </div>
+
+    <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+        
+        <button type="button" id="send-otp-btn" class="btn-secondary">Send OTP</button>
+    </div>
+
+    <div class="input-group" id="otp-group" style="display: none;"> 
+        <label for="otp">Enter OTP</label>
+        <input type="text" id="otp" name="otp" required maxlength="6">
+    </div>
+
+    <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required autocomplete="new-password">
+    </div>
+
+    <button type="submit" id="signup-btn" class="btn-primary" disabled>Sign Up</button>
+</form>
+        
+        <p class="switch-form">
+            Already have an account? <a href="login.html">Sign In here</a>
+        </p>
+    </div>
+</body>
+</html>

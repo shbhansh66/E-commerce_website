@@ -10,7 +10,7 @@ export const addToCart=(event, productId, stock)=>{
      let quantity=cardElement.querySelector(".product-quantity-value").innerText;
 
      let price=cardElement.querySelector(".product-current-price").innerText;
-
+   
      price=price.replace('₹','');
 
      let exitcart=addtoLS.find((currId)=>currId.productId===productId);
