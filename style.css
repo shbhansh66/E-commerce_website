@@ -966,7 +966,8 @@ ul {
     .payment-methods {
         justify-content: center;
     }
-};
+}
+
 
 @media (max-width: 768px) {
     .main-footer {
