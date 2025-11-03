@@ -8,8 +8,8 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"), // Your main entry point (e.g., home page)
         about: resolve(__dirname, "about.html"), // Additional HTML pages
         contact: resolve(__dirname, "contact.html"),
-        products: resolve(__dirname, "product.html"),
-        addToCart: resolve(__dirname, "addtocart.html"),
+        product: resolve(__dirname, "product.html"),
+        addtocart: resolve(__dirname, "addtocart.html"),
         // Add more entry points for other HTML files as needed
       },
     },

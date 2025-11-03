@@ -2,7 +2,7 @@ import "./style.css";
 export const showToast=(operation,id)=>{
     const toast =document.createElement("div");
     toast.classList.add("toast");
-    toast.classList.add("show")
+    toast.classList.add("show");
 
 
     if(operation==="add"){
