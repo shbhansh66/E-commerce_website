@@ -1,5 +1,6 @@
 import { addToCart } from "./addToCart";
 import { checkQuantity } from "./checkQuantity";
+import { showToast } from "./showToast";
 
 const productContainer = document.getElementById('productContainer');  // Assuming there's a container with this ID in your HTML
 const productCardTemplate = document.getElementById('productCardTemplate'); // Assuming there's a template with this ID in your HTML  
@@ -39,6 +40,7 @@ export const showProductContainer = (products) => {
 
           productClone.querySelector(".add-to-cart-btn").addEventListener('click', (event) => {
             addToCart(event, id, stock);
+             showToast("add",id);
         });
 
           
@@ -49,5 +51,6 @@ export const showProductContainer = (products) => {
 
     
         });
+
           
 };

@@ -7,15 +7,8 @@
     <link rel="stylesheet" href="./style.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
-    /*
-|--------------------------------------------------------------------------
-| REVISED RESPONSIVE CSS
-|--------------------------------------------------------------------------
-*/
+    
 
-/* --- Global Layout/Containers (Apply to all sizes unless overridden) --- */
-
-/* Ensures the body content doesn't stretch too wide on desktop */
 .content-area-wrapper { 
    
     max-width: 1200px;
@@ -30,9 +23,9 @@
 .cart-item-container {
     display: flex;
     align-items: center;
+    border: 1px solid black;
     justify-content: space-between;
     background-color: #e7d1d1;
-    border-radius: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
@@ -45,7 +38,7 @@
 
 /* Cart Item Sub-Styles (Keep as is, they look good) */
 .cart-item-category { margin-right: 1.5rem; flex-shrink: 0; }
-.cart-item-info { display: flex; align-items: center; gap: 1rem; flex-grow: 1; min-width: 180px; }
+.cart-item-info { display: flex; align-items: center; gap: 2rem; flex-grow: 1; min-width: 180px; }
 .cart-item-image { width: 80px; height: 60px; object-fit: contain; border-radius: 0.4rem; flex-shrink: 0; }
 .product-old-price {
     font-size: 0.9rem;
@@ -147,6 +140,8 @@
     margin-top: 5px;
 }
 
+
+
 /* ------------------------------------------- */
 /* --- 📱 MOBILE STYLES (Max 768px) --- */
 /* ------------------------------------------- */
@@ -236,10 +231,10 @@
         </button>
 
         <ul class="nav-links">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT</a></li>
-            <li><a href="#">PRODUCTS</a></li>
-            <li><a href="#">CONTACT</a></li>
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./about.html">ABOUT</a></li>
+            <li><a href="./product.html">PRODUCTS</a></li>
+            <li><a href="./contact.html">CONTACT</a></li>
         </ul>
 
         <div class="add-to-cart">
@@ -253,9 +248,7 @@
     </header>
 
     <section class="productCartContainer">
-
-
-        
+    
     </section>
 
 
@@ -270,9 +263,9 @@
               <p class="product-old-price">₹3999</p>
             <p class="cart-item-price">₹999.99</p>
             <div class="cart-item-quantity-group">
-                <button class="quantity-control-btn quantity-increment-btn">+</button>
+                <button class="quantity-control-btn quantity-increment-btn incre">+</button>
                 <span class="quantity-value">7</span>
-                <button class="quantity-control-btn quantity-decrement-btn">-</button>
+                <button class="quantity-control-btn quantity-decrement-btn decre">-</button>
             </div>
         
             <button class="cart-item-remove-btn">Remove</button>
@@ -287,15 +280,15 @@
                 <div class="totalCostSelected">
                     <div class="subTotal">
                         <h5>Sub Total :</h5>
-                        <p>kgk</p>
+                        <p class="TotalValue">kgk</p>
                     </div>
                     <div class="taxTotal">
                         <h5>Tax :</h5>
-                        <p>575</p>
+                        <p class="taxValue">50</p>
                     </div>
                     <div class="finalTotal">
                         <h5>Final Total :</h5>
-                        <p>kgk</p>
+                        <p class="finalValue">kgk</p>
                     </div>
                 </div>
             </section>

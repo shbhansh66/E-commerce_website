@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - E-Commerce Store</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* Basic Reset and Container */
+.contact-section {
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on small screens */
+    gap: 30px;
+    padding: 0 15px;
+}
+
+/* Form and Map Wrappers */
+.contact-form-wrapper,
+.map-wrapper {
+    flex: 1 1 45%; /* Both take up approx 45% width, ensuring they stay side-by-side */
+    min-width: 300px; /* Minimum width before stacking */
+}
+
+.contact-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e7d1d1;
+    padding-bottom: 10px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Crucial for width calculation */
+}
+
+.submit-btn {
+    background-color: #343a40; /* Dark button like your previous cart component */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #495057;
+}
+
+/* Map Styling */
+#google-map {
+    width: 100%;
+    /* The iframe inside will fill this space */
+}
+
+/* Responsive Stacking */
+@media (max-width: 768px) {
+    .contact-form-wrapper,
+    .map-wrapper {
+        flex-basis: 100%; /* Stacks the form and map vertically */
+    }
+}
+</style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="container">
+                <p>Free shipping, 30-day return or refund guarantee.</p>
+                <div class="top-bar-links">
+                    <a href="#">SIGN IN</a>
+                    <a href="#">SIGN UP</a>
+                </div>
+            </div>
+        </div>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="navbar-brand">
+            <span class="brand-prefix">KAMAL-HARAMI</span> STORE
+        </a>
+        
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./about.html">ABOUT</a></li>
+            <li><a href="./product.html">PRODUCTS</a></li>
+            <li><a href="./contact.html">CONTACT</a></li>
+        </ul>
+
+        <div class="add-to-cart">
+            <a href="./addtocart" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart_count">0</span>
+            </a>
+        </div>
+    </div>
+</nav>
+    </header>
+   
+
+
+<section class="contact-section">
+    <div class="contact-container">
+        
+        <div class="contact-form-wrapper">
+            <h2>Get in Touch</h2>
+            <form action="#" method="POST" class="contact-form">
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+                
+            </form>
+        </div>
+        
+        <div class="map-wrapper">
+            <h2>Our Location</h2>
+            <div id="google-map">
+                <iframe 
+                    src="[YOUR GOOGLE MAP EMBED CODE HERE]" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="main-footer">
+    <div class="container footer-content-container">
+        <div class="footer-column footer-info">
+            <a href="#" class="footer-brand">
+                <span class="brand-prefix">Kamal-Harami</span> STORE
+            </a>
+            <p class="store-description">
+                Welcome to Kamal-Harami EcomStore, your ultimate destination for cutting-edge gadgets!
+            </p>
+            <div class="payment-methods">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAARVBMVEVHcEzx6fWoh8uLYLmeecaFV7lzQK5pMalfJZ99TrV3RbFbHZ2TbMFSBpl0Qa6Qbbusk8vr5PP+/v/QwuLd0+qCVrWUbMPMLHQGAAAAF3RSTlMACCZVPKzj/P+LyP9///T///////9joJsk/FcAAAD9SURBVHgBfdIHgoMwDERRugZkg2vuf1S3Vext+el5dDT15mVd122Z/mjbDwJAdJw/fbkgMWifR1PEAGstfm/dTpQeYyBKSkyhZp3zWpi2ZhuhxEXNW++52HwwvjQMynvB2L7nNLxzj2ZGiZaMFxd7Wi7rczd95TMk5HRwQxX5mKYVFU3REOq7h2w3osZ5XZvfrbOa0VqnF1oFCQXFED/j+QmjYD3HEWmTiwcu5+iDeyMf+QIe8sO7miB2uSdVjffGNpT7styiOvdGvuptWdGrKNentg9orG+oZCavrgy5JVJft49Qb443uOOx/RhcdVATuuL8x8xHdZ5qHeY9AU6SGPeEW1olAAAAAElFTkSuQmCC" alt="Payment Methods" class="PhonePe-icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADmUlEQVR4Ab1XA5AjQRQ9G6UrnV0627Zt27Zt27Zt27Z9FyeXiZN3v1NzW9vTmd3J6lW9cKbf6690EmlFIBDIQGzr9/vXE+8RjUSPTIP82Xq6pg27VvPCGoTz08KbiE5oBF3rIG6ge/PGWBhAGlpkAdEHzRCMeInzyEjqcHedj258gbgBM/KU1syjVbwo3aBHCPh+foe0YyMsw/vC0KI2dDVLQ1ejFAzNasI8tDekLWvh+/5VzYQOQGENOxfFfb9+wDplNHTVS0JXrUTUpGusk0aye0Ka4CPBi6cNFXbn2RPQ16vIi2igvn4luC6dVUuHWBOs4KCAtGtzOKICbXOnqKVjbqhW8yl2rrqwqUcb2Nctg/P4QThPHKLXy2Hq2ZYXXzgTCARUu4NLBetzZbHp61YQhI3tG8N9/zbU4L53C4bW9fF3+XwtnbH+f79nVA4Z++IBgri5fxcEbDZEh4Bk19qaEkUhPQt/W24Bxwd4z6SEdVSOCHHWcn6LCXEN0m7Fwr+ec/ZpJrznkwcpLcsEfZ3icJ4+hvgAaa9hBu5x+X9Qk4lH0H0wJ+D1xpeB28yAEZHgvZqFM+B71gZRoeoMu2ZeeuEVBhMz4OEMXEjJGfC/nxBnBnbc8CgNuBPUwKYr7pAGDFGm4GnrODOw97YQAZ1YhA9rcQa+Xy0Ij9+LcPFR5xcMXHnlFYtQbMPZEeLHTuRE+d2NcfjDeYSL3bc8goFfloDYhuwMxw+iT3CcT42Zh4uh+O5mQdY83BUGpxla8dcZQPPFEifeeY0j1CBqGTxskhPu20W3pjJhju3PjIDFHf0o9viAUbucwu73iPmXAKT7/2O0AZHw065Dxf3tBBP1j/bC1R/3oYa35s/odmQ3CVo5cRYNh1sI/9rIP8d5/X6+0k59vioLi2x+ciAWPNyEvW9PYd+701jxdAe6nx+HErubB78vtXkUqsz5FmHg2mufUtxDmrmVB5J5UGDb6yOCuFaW2NEZFRfeFXpfNjBL7Rj+DAqc+XKd0tE+bAOl9rTEuqdHQok/BpBK7VyYRz69cvgl6THu5iKU3NNck3ivixPxyvQhlPhvALmi+0NSmDfBF+eWV4fQ//JU1DnSA6X3tmQ7pTbthh4XJgRr4bXpI2QI4rTBQurKYiSeIo7Awi7sXIOJ1Oz0SvTGQthDnKWW83CisZ4ohSEsEdfKrRY3YAdIYis2v4m3iTqiW6ZO/mwNG6/yhNOEf6HhfzYhUKeuAAAAAElFTkSuQmCC" alt="Payment Methods" class="Gpay-icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVR4AWP4//8/IyUYwwAWvXx3IJ6JBU8H4lQgZsdrAFThfzz4MBCzkmcAAkcTa8BfIL4LxK/RDOgl1oCPUDF2IP6OJD6deAMQ4h/JMeAzECsDsSEQ/yTJAAK4lVIDnCkxYCLRCQka8ulQnAjEujB1JMYCAg8NA1yRcmAtIQMA+btEVcQPmh8AAAAASUVORK5CYII=" alt="Payment Methods" class="payment-icon">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACZElEQVRYhe2XTUhUURiGnzP/Y3fGGWawbCrNdKCCImosw35oECTITZsyAgVxUQmViyJaBG7aBi3a1CaiiKLcJKVBmUWzqRa2EMMgRTOZwdQZx3vn3tviBqVCXm3GofBbnu/wfQ/vec+f0HVdJ49hyWfzFYAVgJwDpBUYT+UJIPYZvNfAV7DMAIoKrY9hzwNoKV94vi2bzV/0QUMHFFihzAEHy5YJICXD+XZ4NAjrXCCAMQUiJcsA8KQXGp9BwP6ruaZDyAlrCnMIIKvQcA9efgOfDXx2cFpgIgNpDU6EzdVZsglf9UPnKExpUB+G7mboSxoKTKtQvdFcnSUr0NUPRQ5or4ciRugdLsYmjFw8AztNrP9fAQQ98PEMtF68yuZwCWLLcQoskNFhrx8kZ44BDkjvEaHLMBxnZOg+TZ3gthryH6kwX2fRHpBlhaaWNiKRs+Cyg89LMLSBnjhYBaQ0qCo1X29RCjztek3t4SsQdCCFA0wlZc41H+LdIPitxpxEBnaszzLA5FSSxlNtPLwdw1Xuw2b56bYJhdpoJd2fDPllDY6GQIgsA3g9dbDWjRT2zyFLU1W5jUt3wWWBSRVqNplvDiY8MDj0FVCRJMes8RlVo3hrAKQgX6bBIiCpwm6T2880wJvYByicv6eUlMLpk1FiA+Cxgo5xCFWszjJAR9db8DrmJ8Zlovt38bzfWP8ZDY6ZPP1+D7HQv0CICPgC81ETY6Sne1h13U2pHUYVuFMDddsXB/BHEyYS37lx8wJOp312QgebVaDZ3dyqBofNuJz2mXiAzI0FFch1/N+v4hWAfwLgB5oWrDfdjFgPAAAAAElFTkSuQmCC" alt="Payment Methods" class="RazorPay-icon">
+            </div>
+        </div>
+
+        <div class="footer-column footer-links">
+            <h4>SHOPPING</h4>
+            <ul>
+                <li><a href="#">Computer Store</a></li>
+                <li><a href="#">Laptop Store</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Sales & Discount</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column footer-links">
+            <h4>Experience</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Payment Method</a></li>
+                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Return and Exchange</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column footer-newsletter">
+            <h4>NEWSLETTER</h4>
+            <p>Be the first to know about new arrivals, sales & exclusive offers!</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your Email" class="newsletter-input">
+                <button type="submit" class="newsletter-button">SUBSCRIBE</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2023 Kamal-Harami EcomStore. Design and Code by: Kamal-Harami Coder</p>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

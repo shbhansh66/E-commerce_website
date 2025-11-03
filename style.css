@@ -1308,3 +1308,52 @@ ul {
         font-size: 0.95rem;
     }
 }
+
+
+
+/* toast */
+
+/* --- Toast Notification CSS --- */
+
+/* --- Toast Notification CSS --- */
+
+.toast {
+    /* 1. Positioning and Size */
+    position: fixed; /* Ensures it stays visible even when the user scrolls */
+    top:  20px;    /* Position 20px from the bottom */
+    right: 20px;     /* Position 20px from the right */
+    z-index: 1000;   /* Make sure it's above all other page content */
+    
+    /* Auto size based on content, but limit max width */
+    max-width: 300px; 
+    width: auto;     /* Width adjusts to content */
+    min-height: 45px;
+    
+    /* 2. Appearance */
+    background-color: #38c172; /* Use a success color (green) */
+    color: white;             
+    padding: 12px 20px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    font-weight: 500;
+    
+    /* 3. Animation: Initial Hidden State */
+    opacity: 0; 
+    visibility: hidden;
+    /* Use a slight vertical shift for a "slide-in" effect */
+    transform: translateY(20px); 
+    /* Define the speed of the animation */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s;
+}
+
+/* --- Animation Trigger --- */
+
+/* When the 'show' class is added via JavaScript, the toast becomes visible */
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slides up to its final position */
+}
+
+
