@@ -17,7 +17,7 @@ const templateContainer=document.querySelector('.productCartTemplate');
 const showCartProducts= ()=>{
     filteredProducts.forEach((products)=>{
     const {id,name,price,stock,category,image}=products;
-    let productClone=document.importNode(templateContainer.content,true);
+   let productClone = document.importNode(templateContainer.content, true);
 
     productClone.querySelector('.cart-item-category').textContent=category;
     productClone.querySelector('.cart-item-info img').src=image;
@@ -40,6 +40,9 @@ const showCartProducts= ()=>{
     productClone.querySelector(".cart-item-remove-btn").addEventListener('click', () => {
              removeFromCart(id);
           });
+    productClone.querySelector('.buy').addEventListener('click',()=>{
+        console.log('fg')
+    })
     cartElement.appendChild(productClone);
 });
 }
