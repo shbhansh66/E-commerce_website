@@ -85,25 +85,39 @@
 }
 .cart-item-remove-btn {
     flex-shrink: 0;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgb(31, 25, 25);
-    color: white;
-    border: none;
-    box-shadow: 1px 8px 5px rgba(0, 0, 0, 0.5);
+    color: rgb(146, 142, 142);
     cursor: pointer;
+    padding-left: 10px;
     transition: transform 0.2s ease-in-out; 
     transform: scale(1);
+    font-size: 15px;
+    border: 0;
+    background-color: #fcf8f8;
 }
+
+
 
 /* New: Apply the scale transform on hover for the visual effect */
 .cart-item-remove-btn:hover {
+    transform: scale(1.05); /* Enlarge the button by 5% */
+}
+.cart-item-buy-btn:hover {
     transform: scale(1.05); /* Enlarge the button by 5% */
 }
 
 /* Optional: Slightly reduce the button when it's actively clicked */
 .cart-item-remove-btn:active {
     transform: scale(0.98);
+    
+}
+.cart-item-buy-btn:active {
+    transform: scale(0.98);
+    
+}
+
+.buyRemoveBtn{
+    display: flex;
+    gap: 10px;
 }
 
 /* TOTAL COST CONTAINER (Desktop: Aligned to the right, below the cart items) */
@@ -271,8 +285,10 @@
                 <span class="quantity-value">7</span>
                 <button class="quantity-control-btn quantity-decrement-btn decre">-</button>
             </div>
-        
-            <button class="cart-item-remove-btn">Remove</button>
+        <div class="buyRemoveBtn">
+            <button class="cart-item-remove-btn"><i class="fa-solid fa-trash"></i>    Remove</button>
+             <button class="cart-item-remove-btn buy"><i class="fa-solid fa-bag-shopping"></i>  Buy Now</button>
+             </div>
         </div>
         
 </template>
@@ -361,6 +377,7 @@
 </footer>
 
 <script type="module" src="showAddToCart.js"></script>
+<script type="module" src="script.js"></script>
 
 </body>
 </html>

@@ -1253,12 +1253,12 @@ ul {
 /* Add to Cart Button */
 .add-to-cart-btn {
     width: 100%;
-    background-color: #212529; /* Dark background matching the image */
+    background-color: #488bce; /* Dark background matching the image */
     color: #ffffff;
     border: none;
-    border-radius: 0.5rem;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
+    border-radius: 0.3rem;
+    padding: 10px;
+    font-size: 0.7rem;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -1267,13 +1267,44 @@ ul {
     justify-content: center;
 }
 
+.buy-to-cart-btn {
+    width: 100%;
+    background-color: #488bce; /* Dark background matching the image */
+    color: #ffffff;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buyRemoveBtn{
+    display: flex;
+    gap: 10px;
+
+}
+
 .add-to-cart-btn:hover {
+    background-color: #343a40;
+}
+
+.buy-to-cart-btn:hover {
     background-color: #343a40;
 }
 
 .add-to-cart-btn .cart-icon {
     margin-right: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+}
+
+.buy-to-cart-btn .fa-bag-shopping {
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
 }
 
 /* Responsive adjustments */
