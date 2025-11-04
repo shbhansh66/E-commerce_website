@@ -62,6 +62,7 @@ export const IncDecmentQuantity = (event, id, stock, unitPrice) => {
     prodContainer.querySelector('.product-old-price').textContent=`₹${newTotalPrice.toFixed(2)*4}`;
     prodQuantityElem.textContent = currentQuantity;
     prodPriceElem.textContent = `₹${newTotalPrice.toFixed(2)}`;
+   
     // updateCartTotal(); 
     updateCartProductTotal();
 }

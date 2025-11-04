@@ -22,10 +22,11 @@
 
 .cart-item-container {
     display: flex;
+    border-radius: 5px;
     align-items: center;
     border: 1px solid black;
     justify-content: space-between;
-    background-color: #e7d1d1;
+    background-color: #fcf8f8;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
@@ -46,7 +47,7 @@
     text-decoration: line-through;
     margin-bottom: 0;
 }
-.cart-item-price { margin: 0 2rem; min-width: 80px; text-align: right; flex-shrink: 0; }
+.cart-item-price { margin: 0 2rem; min-width: 80px; text-align: right; flex-shrink: 0;color: green; }
 .cart-item-quantity-group { display: flex; align-items: center; border: 1px solid #ddd; border-radius: 0.5rem; overflow: hidden; margin: 0 2rem; flex-shrink: 0; }
 /* Quantity Control Buttons (+ and -) */
 .quantity-control-btn {
@@ -126,7 +127,7 @@
     width: 100%; /* Take up the width of the parent flex item */
 }
 
-.subTotal, .taxTotal, .finalTotal {
+.subTotal, .taxTotal, .finalTotal, .discountTotal{
     display: flex;
     gap: 5px;
     margin-top: 10px;
@@ -138,6 +139,9 @@
     border-top:1px solid black;
     padding-top: 10px;
     margin-top: 5px;
+}
+.discountValue{
+    color: green;
 }
 
 
@@ -279,15 +283,20 @@
                 <h4 class="totalCostSummary">Selected Offer Summary</h4>
                 <div class="totalCostSelected">
                     <div class="subTotal">
-                        <h5>Sub Total :</h5>
+                        <h5>Price :</h5>
                         <p class="TotalValue">kgk</p>
                     </div>
-                    <div class="taxTotal">
+                    <div class="discountTotal">
+                        <h5>Discount :</h5>
+                        <p class="discountValue">50</p>
+                    </div>
+                       <div class="taxTotal">
                         <h5>Tax :</h5>
                         <p class="taxValue">50</p>
                     </div>
+
                     <div class="finalTotal">
-                        <h5>Final Total :</h5>
+                        <h5>Final Total Amount :</h5>
                         <p class="finalValue">kgk</p>
                     </div>
                 </div>
