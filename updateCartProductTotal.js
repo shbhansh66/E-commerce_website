@@ -10,6 +10,6 @@ let initial=0;
     
     document.querySelector('.TotalValue').textContent=`₹${totalPrice}`;
    
-  let discount=   document.querySelector('.discountValue').textContent=`- ₹${totalPrice/100}`;
-    document.querySelector('.finalValue').textContent=`₹${totalPrice+50-totalPrice/100}`
+  let discount=   document.querySelector('.discountValue').textContent=`- ₹${totalPrice/50}`;
+    document.querySelector('.finalValue').textContent=`₹${totalPrice+50-totalPrice/50}`
 }
